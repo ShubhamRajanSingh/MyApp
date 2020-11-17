@@ -69,6 +69,6 @@ public class Notifications extends BroadcastReceiver {
         final PendingIntent pendingIntent = PendingIntent.getBroadcast(context, 100, intent1, 0);
         final AlarmManager alarmManager = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
 
-        alarmManager.set(AlarmManager.RTC_WAKEUP, System.currentTimeMillis()+9000, pendingIntent);
+        alarmManager.set(AlarmManager.RTC_WAKEUP, System.currentTimeMillis()+3600000, pendingIntent);
     }
 }

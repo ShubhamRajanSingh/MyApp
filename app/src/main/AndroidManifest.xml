@@ -24,8 +24,6 @@
             </intent-filter>
         </activity>
 
-        <service android:name=".NotificationService" />
-
         <receiver
             android:name=".Notifications"
             android:enabled="true"
