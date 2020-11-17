@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorPrimary"
+    >
+    <RelativeLayout
+        android:layout_width="400dp"
+
+        android:layout_height="wrap_content"
+        >
+
+    <TextView
+        android:id="@+id/dialogText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Add Task; "
+        android:textSize="25sp"
+        android:textColor="@color/colorPrimaryDark"
+        android:textStyle="bold"/>
+    <EditText
+        android:id="@+id/dialog_editText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/dialogText"/>
+    <Button
+        android:id="@+id/dialog_button"
+        android:layout_width="100dp"
+        android:layout_height="50dp"
+        android:layout_below="@+id/dialog_editText"
+        android:text="ADD"
+        android:textStyle="bold"
+        android:background="@color/colorAccent"
+
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="25sp"
+        android:layout_alignParentRight="true"/>
+    </RelativeLayout>
+
+
+</RelativeLayout>
