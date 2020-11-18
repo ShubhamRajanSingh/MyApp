@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.myapp">
 
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/logo"
@@ -9,7 +11,10 @@
         android:roundIcon="@mipmap/logo_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".subTasksActivity"></activity>
+        <activity android:name=".ReminderSeeActivity"></activity>
+        <activity android:name=".SetReminderActivity" />
+        <activity android:name=".ReminderActivity" />
+        <activity android:name=".subTasksActivity" />
         <activity android:name=".tasksActivity" />
         <activity android:name=".doneActivity" />
         <activity
@@ -30,6 +35,14 @@
             android:exported="true">
             <intent-filter>
                 <action android:name="BackgroundProcess" />
+            </intent-filter>
+        </receiver>
+        <receiver android:name="com.allyants.notifyme.NotificationPublisher" />
+        <receiver android:name="com.allyants.notifyme.BootNotifyMe">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+
+                <category android:name="android.intent.category.HOME" />
             </intent-filter>
         </receiver>
     </application>

@@ -17,11 +17,16 @@ import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.Switch;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
+
 public class MainActivity extends AppCompatActivity {
 
     GridView gridView;
     Switch switch1;
-    int icon[] = {R.drawable.to_do,R.drawable.ic_tasks};
+    int icon[] = {R.drawable.to_do,R.drawable.ic_tasks,R.drawable.ic_reminder};
 
 
     @Override
@@ -31,6 +36,7 @@ public class MainActivity extends AppCompatActivity {
 
         gridView = findViewById(R.id.home_grid_view);
         switch1=findViewById(R.id.switch1);
+
         final Intent intent = new Intent(MainActivity.this, Notifications.class);
 
         final PendingIntent pendingIntent = PendingIntent.getBroadcast(getApplicationContext(), 100, intent, 0);
@@ -42,13 +48,13 @@ public class MainActivity extends AppCompatActivity {
                 if (isChecked) {
 
                         Log.d("noti", "Notification Check");
-//                        startService(new Intent(MainActivity.this, NotificationService.class));
+
                     alarmManager.set(AlarmManager.RTC_WAKEUP, System.currentTimeMillis(), pendingIntent);
 
 
                 } else {
                     Log.d("noti","Notification end");
-//                    stopService(new Intent(MainActivity.this,NotificationService.class));
+
                     alarmManager.cancel(pendingIntent);
 
 
@@ -73,6 +79,10 @@ public class MainActivity extends AppCompatActivity {
                     Intent i = new Intent(MainActivity.this, tasksActivity.class);
                     startActivity(i);
                 }
+                else if(position==2){
+                    Intent i = new Intent(MainActivity.this, ReminderActivity.class);
+                    startActivity(i);
+                }
 
 
             }
@@ -90,7 +100,7 @@ public class MainActivity extends AppCompatActivity {
         public int getCount() {
 
 
-            return 2;
+            return 3;
         }
 
         @Override

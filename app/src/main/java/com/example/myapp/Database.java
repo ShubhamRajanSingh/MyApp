@@ -23,23 +23,20 @@ public class Database extends SQLiteOpenHelper {
         db.execSQL(sql);
         String sql1="create table JOBS(_id INTEGER PRIMARY KEY AUTOINCREMENT,DOMAIN TEXT,SUBDOMAIN TEXT,DONE BOOLEAN)";
         db.execSQL(sql1);
+        String sql2="create table REMINDER(_id INTEGER PRIMARY KEY AUTOINCREMENT,MESSAGE TEXT,datetimes TEXT,date TEXT,time TEXT)";
+        db.execSQL(sql2);
 
-
-
-        insertData("null","true",db);
-        insertDataJob("null","null","true",db);
-
-
-
-
+        insertData("null","2050-12-12 12:12:12","2050-12-12","12:12:12",db);
 
     }
 
-    private void insertData(String task,String DONE,SQLiteDatabase db){
+    private void insertData(String task,String DONE,String date,String time,SQLiteDatabase db){
         ContentValues values=new ContentValues();
-        values.put("TASK",task);
-        values.put("DONE",DONE);
-        db.insert("TASKS",null,values);
+        values.put("MESSAGE",task);
+        values.put("datetimes",DONE);
+        values.put("date",date);
+        values.put("time",time);
+        db.insert("REMINDER",null,values);
 
     }
     private void insertDataJob(String task,String sub,String DONE,SQLiteDatabase db){
